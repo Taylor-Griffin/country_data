@@ -16,7 +16,6 @@ const Weather = ({ country }) => {
     } catch (err) {
       console.error(err);
     }
-    console.log(weather);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [country.capital]);
   return (
