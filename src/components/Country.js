@@ -2,7 +2,7 @@ import React from 'react';
 
 const Country = ({ country }) => {
   return (
-    <div key={country.name}>
+    <div>
       <h2>{country.name.common}</h2>
       <p>Capital:{country.capital}</p>
       <p>Area: {country.area}</p>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Country from './components/Country';
+import Weather from './components/Weather';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -39,10 +40,11 @@ function App() {
       {filteredCountries.length < 10 &&
         filteredCountries.map((country) => (
           <div
+            key={country.name.common}
             style={{
               display: 'flex',
               alignItems: 'center',
-              width: '20%',
+              width: '150px',
             }}
           >
             <p key={country.name.common}>{country.name.common}</p>
@@ -53,8 +55,12 @@ function App() {
         ))}
       {filteredCountries.length === 1 &&
         filteredCountries.map((country) => <Country country={country} />)}
-      {selectedCountry.length === 1 &&
-        selectedCountry.map((country) => <Country country={country} />)}
+      {selectedCountry.map((country) => (
+        <>
+          <Country country={country} />
+          <Weather country={country} />
+        </>
+      ))}
     </>
   );
 }
