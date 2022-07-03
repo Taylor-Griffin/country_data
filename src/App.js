@@ -68,12 +68,14 @@ function App() {
           </div>
         ))}
       {filteredCountries.length === 1 &&
-        filteredCountries.map((country) => <Country country={country} />)}
+        filteredCountries.map((country) => (
+          <Country key={country.name} country={country} />
+        ))}
       {selectedCountry.map((country) => (
-        <>
+        <div key={country.name}>
           <Country country={country} />
           <Weather country={country} />
-        </>
+        </div>
       ))}
     </>
   );
